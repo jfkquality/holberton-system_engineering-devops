@@ -1,2 +1,2 @@
 #!/bin/bash
-echo {a..z}\n{a..z}
+printf {a..z}{a..z}
