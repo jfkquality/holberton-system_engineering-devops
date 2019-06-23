@@ -1,0 +1,12 @@
+#!/bin/bash
+
+/**
+ * main - Encrypt text using rot13
+ * Description: Excrypt text using rot13
+ * Return: 0
+ 
+int main(void)
+{
+	echo -e (\""Everyone is a proponent of strong encryption. \"" \n - Dorothy E. Denning) \
+	| tr 'A-Za-z' 'N-Za-m'
+}
