@@ -2,8 +2,14 @@
 # This script is displaying "Holberton School" 10 times
 # export i
 i="0"
-until [ $i -ge 10 ]
+while [ $i -le 12 ]
 do
-    echo "Holberton School"
+    echo "Hour:" $i
+    j="1"
+    while [ $j -lt 60 ]
+    do
+	echo $j
+	j=$((j+1))
+    done
     i=$((i+1))
 done
