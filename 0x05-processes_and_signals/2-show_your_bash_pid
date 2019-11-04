@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Write a Bash script that displays lines containing the bash word.
+ps axu -H -C "bash"
+# shellcheck disable=SC2009
