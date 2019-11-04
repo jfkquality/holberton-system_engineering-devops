@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#list processes with bash in name; no ps
+pgrep -l bash
