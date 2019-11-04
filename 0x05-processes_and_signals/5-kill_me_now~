@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kill infinite loop To infinity and beyond
+kill -9 $(pidof -x ./4-to_infinity_and_beyond)
