@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kills the process 7-highlander which traps SIGTERM
+kill -9 "$(pgrep -f ./7-highlander)"
