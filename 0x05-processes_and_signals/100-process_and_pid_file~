@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Endless loop, trap SIGTERM, SIGKILL, SIGINT, SIGTERM, SIGQUIT
+sudo ps $$ > /var/run/holbertonscript.pid
+trap "echo 'I am invincible!!!'" SIGTERM
+trap "echo 'Y U no love me?!'" SIGINT
+trap "rm /var/run/holbertonscript.pid; exit" SIGQUIT SIGTERM
+while :
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
