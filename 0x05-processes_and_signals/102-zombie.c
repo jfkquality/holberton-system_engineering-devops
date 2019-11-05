@@ -25,11 +25,12 @@ int infinite_while(void)
 int main(void)
 {
 	int i = 0;
+	pid_t child_pid;
 
-	for (i; i < 5; i++)
+	for (; i < 5; i++)
 	{
 		/* Fork returns process id in parent process */
-		pid_t child_pid = fork();
+		child_pid = fork();
 
 		/* Parent process */
 		if (child_pid > 0)
