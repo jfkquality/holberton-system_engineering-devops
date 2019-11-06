@@ -1,13 +1,34 @@
 #!/usr/bin/env bash
 # Manage manage_my_process
 
-/etc/init.d/start OPTION
-$(manage_my_process)
-ps $$ | sudo tee /var/run/holbertonscript.pid
-trap "echo 'I hate the kill command'" SIGTERM
-trap "echo 'Y U no love me?!'" SIGINT
-trap "rm /var/run/holbertonscript.pid; exit" SIGQUIT SIGTERM
+# if [[ $1 =~ "^(start|stop|restart)$" ]]
+if [[ $# -eq 0 || -z $1 || "$1" != "start" || "$1" != "stop" || "$1" != "restart" ]] # $1 =~ "^(start|stop|restart)$" ]]
+then
+    echo "Usage: manage_my_process {start|stop|restart}"; exit
+fi
+if [[ "$1" = "start" ]]
+then
+    # /etc/init.d/manage_my_process start
+    # . manage_my_process start
+    . manage_my_process start &
+    echo $$ > /var/run/my_process.pid
+    echo "manage_my_process started"
+elif [[ "$1" = "stop" ]]
+then
+    # /etc/init.d/manage_my_process stop
+    # . manage_my_process stop &
+    rm /var/run/my_process.pid
+    echo "manage_my_process stopped"
+    pkill -f manage_my_process
+elif [[ "$1" = "restart" ]]
+then
+    # /etc/init.d/manage_my_process restart
+    # . manage_my_process stop &
+    rm /var/run/my_process.pid
+    . manage_my_process start &
+    # /etc/init.d/manage_my_process start
+    echo $$ > /var/run/my_process.pid
+    echo "manage_my_process restarted"
+    pkill -f manage_my_process
 
-# /etc/init.d/stop OPTION
-
-# /etc/init.d/restart OPTION
+fi
