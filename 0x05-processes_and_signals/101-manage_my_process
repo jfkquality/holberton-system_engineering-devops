@@ -1,34 +1,26 @@
 #!/usr/bin/env bash
 # Manage manage_my_process
 
-# if [[ $1 =~ "^(start|stop|restart)$" ]]
-if [[ $# -eq 0 || -z $1 || "$1" != "start" || "$1" != "stop" || "$1" != "restart" ]] # $1 =~ "^(start|stop|restart)$" ]]
+# if [[ $# -eq 0 || -z $1 || "$1" =~ "^(start|stop|restart)$" ]]
+if [[ $# -eq 0 || -z $1 || "$1" != "start" && "$1" != "stop" && "$1" != "restart" ]]
 then
     echo "Usage: manage_my_process {start|stop|restart}"; exit
 fi
 if [[ "$1" = "start" ]]
 then
-    # /etc/init.d/manage_my_process start
-    # . manage_my_process start
-    . manage_my_process start &
-    echo $$ > /var/run/my_process.pid
+    . manage_my_process & #don't use/need start after script
+    echo $! > /var/run/my_process.pid # $! is the shortcut for child pid"
     echo "manage_my_process started"
 elif [[ "$1" = "stop" ]]
 then
-    # /etc/init.d/manage_my_process stop
-    # . manage_my_process stop &
+    kill -9 "$(cat /var/run/my_process.pid)"
     rm /var/run/my_process.pid
     echo "manage_my_process stopped"
-    pkill -f manage_my_process
 elif [[ "$1" = "restart" ]]
 then
-    # /etc/init.d/manage_my_process restart
-    # . manage_my_process stop &
+    kill -9 "$(cat /var/run/my_process.pid)"
     rm /var/run/my_process.pid
-    . manage_my_process start &
-    # /etc/init.d/manage_my_process start
-    echo $$ > /var/run/my_process.pid
+    . manage_my_process &
+    echo $! > /var/run/my_process.pid
     echo "manage_my_process restarted"
-    pkill -f manage_my_process
-
 fi
