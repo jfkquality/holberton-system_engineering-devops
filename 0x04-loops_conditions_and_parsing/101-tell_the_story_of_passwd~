@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# USE CUT COMMAND!!!
+# loop finding each colon delimiter for uname(1), uid(2).
+# search from end to get homedir
+# displays content of /etc/passwd. only uname, uid, homedir
+# uname = first value
+# uid = 2nd value; and 1st id value
+# if 2nd value = x, skip it.
+# homedir = last value.
+
+export f2, f4, f5, f7
+fp="/etc/passwd"
+while IFS=: read -r f1 f2 f3 f4 f5 f6 f7
+do
+    # display fields using f1, f2,..,f7
+    echo "$f1:""$f3:""$f6"
+    # printf '%s:%s:%s\n' "$f1" "$f3" "$f6"
+    # printf 'Username: %s, Shell: %s, Home Dir: %s\n' "$f1" "$f7" "$f6"
+done < "$fp"

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# USE CUT COMMAND!!!
+# loop finding each colon delimiter for uname(1), uid(2).
+# search from end to get homedir
+# displays content of /etc/passwd. only uname, uid, homedir
+# uname = first value
+# uid = 2nd value; and 1st id value
+# if 2nd value = x, skip it.
+# homedir = last value.
+
+export f2, f4, f5, f7
+fp="/etc/passwd"
+while IFS=: read -r f1 f2 f3 f4 f5 f6 f7
+do
+    echo The user "$f1" is part of the "$f4" gang, lives in "$f6" and rides "$f7". "$f3"\'s place is protected by the passcode "$f2", more info about the user here: "$f5"
+done < "$fp"
