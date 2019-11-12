@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # USE CUT COMMAND!!!
 # loop finding each colon delimiter for uname(1), uid(2).
 # search from end to get homedir
