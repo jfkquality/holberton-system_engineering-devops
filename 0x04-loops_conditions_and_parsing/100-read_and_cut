@@ -8,6 +8,7 @@
 # if 2nd value = x, skip it.
 # homedir = last value.
 
+export f2, f4, f5, f7
 fp="/etc/passwd"
 while IFS=: read -r f1 f2 f3 f4 f5 f6 f7
 do
