@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
+# SHOULD HAVE USED CUT COMMAND!!!
+
 export i
 LIST="$(ls)"
 for i in $LIST;

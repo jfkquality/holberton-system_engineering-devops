@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# loop finding each colon delimiter for uname(1), uid(2).
+# search from end to get homedir
+# displays content of /etc/passwd. only uname, uid, homedir
+# uname = first value
+# uid = 2nd value; and 1st id value
+## if 2nd value = x, skip it.
+# homedir = last value.
+
+LIST="$(env)"
+start="0"
+end="0"
+
+while usr in $LIST
+do
+    # $start=$end
+    # find position of next colon (currdelim)
+    searchstr=":"
+    end = search(searchstr)
+    val = string from start to end (incuding delim)
+    if $val = "x"
+	continue
+    fi
+    val = val + val
+    rest=${i#*$searchstr}
+
+start = lastdelim
+end = currdelim
