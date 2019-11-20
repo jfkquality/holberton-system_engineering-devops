@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Change your home IP
-if [ -n "$(grep '127.0.0.1 localhost' /etc/hosts)" ]
+if  [ "$(grep -Fx '127.0.0.1 localhost' /etc/hosts)" ]
 then
     sed -i "s/127.0.0.1 localhost/127.0.0.2 localhost/" /etc/hosts
 else
