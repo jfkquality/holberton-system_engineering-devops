@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# only show listening sockets. show PID, name of pgm of ea. socket
+sudo netstat -lp
