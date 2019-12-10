@@ -1,3 +1,4 @@
+# Puppet manifest to create /tmp/holberton file
 file { '/tmp/holberton':
   owner => 'www-data',
   group => 'www-data',
