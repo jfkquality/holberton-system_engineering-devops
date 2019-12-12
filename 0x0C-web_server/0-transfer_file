@@ -9,4 +9,4 @@ IP = $2
 UNAME = $3
 SSH_PATH = $4
 
-ssh "${UNAME}:${IP}" -i $SSH_PATH 'scp $FILE_PATH "${UNAME}@${IP}  "~/"'
+ssh "${UNAME}@${IP}" -i $SSH_PATH 'scp $FILE_PATH "${UNAME}@${IP}  "~/"'
