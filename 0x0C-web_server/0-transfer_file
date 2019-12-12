@@ -11,5 +11,5 @@ SSH_PATH=$4
 
 # ssh "${UNAME}@${IP}" -i "$SSH_PATH" 'ls ~/'
 
-ssh "${UNAME}@${IP}" -i "$SSH_PATH" 'scp "$1" "${UNAME}@${IP}:~/"'
+ssh "${UNAME}@${IP}" -i "$SSH_PATH" 'scp -o StrictHostKeyChecking=no "$1" "${UNAME}@${IP}:~/"'
 # scp $FILE_PATH "${UNAME}@${IP}"  "~/"
