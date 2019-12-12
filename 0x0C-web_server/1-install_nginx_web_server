@@ -6,3 +6,4 @@ sudo apt-get -y install nginx
 # sudo service nginx start
 sudo /usr/bin/nginx
 echo "Hello Holberton" > /var/www/html/index.html
+sudo /usr/bin/nginx
