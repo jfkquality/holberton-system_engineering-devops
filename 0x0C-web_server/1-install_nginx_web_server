@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
 # Install nginx on server
+ssh ubuntu@35.227.124.124 -i /.ssh/id_rsa 'apt-get -y install nginx'
