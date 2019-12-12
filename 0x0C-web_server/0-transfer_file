@@ -4,10 +4,10 @@ if [ "$#" -lt 3 ]; then
     echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
     exit 1;
 fi
-FILE_PATH = $1
-IP = $2
-UNAME = $3
-SSH_PATH = $4
+# FILEPATH=$1
+IP=$2
+UNAME=$3
+SSH_PATH=$4
 
-# ssh "${UNAME}@${IP}" -i $SSH_PATH 'scp $FILE_PATH "${UNAME}@${IP}  "~/"'
-scp $FILE_PATH "${UNAME}@${IP}  "~/"
+ssh "${UNAME}@${IP}" -i "$SSH_PATH" 'scp "$1" "${UNAME}@${IP}"  "~/"'
+# scp $FILE_PATH "${UNAME}@${IP}"  "~/"
