@@ -12,4 +12,4 @@ SSH_PATH=$4
 # ssh "${UNAME}@${IP}" -i "$SSH_PATH" 'ls ~/'
 
 # ssh "${UNAME}@${IP}" -i "$SSH_PATH" 'scp -o StrictHostKeyChecking=no "$1" "${UNAME}@${IP}:~/"'
-scp -i "$SSH_PATH" "$1" "${UNAME}@${IP}:~/"
+scp -i "$SSH_PATH" -o StrictHostKeyChecking=no "$1" "${UNAME}@${IP}:~/"
