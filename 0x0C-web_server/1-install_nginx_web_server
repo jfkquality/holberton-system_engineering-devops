@@ -3,7 +3,7 @@
 # ssh ubuntu@35.227.124.124 -i ~/.ssh/id_rsa 'sudo apt-get -y install nginx'
 sudo apt-get update -y
 sudo apt-get -y install nginx
-sudo service nginx start
+# sudo service nginx start
 sudo mkdir -p /var/www/html
 echo "Holberton School for the win!" > /var/www/html/index.html
-sudo service nginx restart
+sudo service nginx start
