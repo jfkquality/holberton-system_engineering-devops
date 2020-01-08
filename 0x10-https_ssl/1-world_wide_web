@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Show all domain/subdomain info
+
+DEFAULT=default
+
+parse () {
+    FIRST="The subdomain ${2} is a "
+    SECOND=$(dig "${2}.${1}" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $4 " record and points to "  $5}')
+
+    echo $FIRST $SECOND
+
+    return 0
+}
+
+if [ "$2" ]
+then
+    parse "$1" "$2"
+else
+    parse "$1" www
+    parse "$1" lb-01
+    parse "$1" web-01
+    parse "$1" web-02
+fi
