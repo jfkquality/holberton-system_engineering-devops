@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-# Run Nginx as Nginx
-pkill apache2
-sudo service nginx stop
-chmod 644 /etc/nginx/nginx.conf
-sed -i 's/#user www-data;/user nginx;/g' /etc/nginx/nginx.conf
-sed -i 's/80/8080/' /etc/nginx/sites-available/default
-sudo -u nginx service nginx start
+# This applies a fix to run nginx as nginx on port 8080
+sudo chown nginx:nginx /etc/nginx/nginx.conf
+sudo chmod u+r /etc/nginx/nginx.conf
+sudo sed -ir "s/80 default_server/80&/" /etc/nginx/sites-available/default
+kill "$(pgrep -o apache)"
+sudo -u nginx nginx
