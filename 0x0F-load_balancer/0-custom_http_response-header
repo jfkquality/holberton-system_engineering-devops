@@ -3,6 +3,6 @@
 sudo apt-get update -y
 sudo apt-get -y install nginx
 sudo mkdir -p /var/www/html
-sudo bash -c 'echo "add_header X-Served-By  983-web-01" >> /etc/nginx/nginx.conf'
-sudo bash -c 'echo "add_header X-Served-By  983-web-02" >> /etc/nginx/nginx.conf'
-sudo service nginx restart
+echo "add_header X-Served-By  983-web-01" >> /etc/nginx/nginx.conf
+echo "add_header X-Served-By  983-web-02" >> /etc/nginx/nginx.conf
+sudo service nginx start

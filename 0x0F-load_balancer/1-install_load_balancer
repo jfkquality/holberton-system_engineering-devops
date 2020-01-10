@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Install HAproxy on lb-01 server
-sudo apt-get install software-properties-common
+sudo apt-get -y install software-properties-common
 sudo add-apt-repository ppa:vbernat/haproxy-1.5
 sudo apt-get update -y
 sudo apt-get -y install haproxy=1.5.\*
-sudo bash -c 'echo "backend servers" >> /etc/haproxy/haproxy.cfg'
-sudo bash -c 'echo "  mode http" >> /etc/haproxy/haproxy.cfg'
-sudo bash -c 'echo "  balance roundrobin" >> /etc/haproxy/haproxy.cfg'
-sudo bash -c 'echo "  983-web-01 35.227.124.124:80 check" >> /etc/haproxy/haproxy.cfg'
-sudo bash -c 'echo "  983-web-02 35.229.76.171:80 check" >> /etc/haproxy/haproxy.cfg'
-sudo bash -c 'echo "  option httpchk" >> /etc/haproxy/haproxy.cfg'
+echo "backend servers" >> /etc/haproxy/haproxy.cfg
+echo "  mode http" >> /etc/haproxy/haproxy.cfg
+echo "  balance roundrobin" >> /etc/haproxy/haproxy.cfg
+echo "  983-web-01 35.227.124.124:80 check" >> /etc/haproxy/haproxy.cfg
+echo "  983-web-02 35.229.76.171:80 check" >> /etc/haproxy/haproxy.cfg
+echo "  option httpchk" >> /etc/haproxy/haproxy.cfg
