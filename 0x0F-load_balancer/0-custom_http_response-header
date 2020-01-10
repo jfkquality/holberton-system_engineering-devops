@@ -3,6 +3,6 @@
 sudo apt-get update -y
 sudo apt-get -y install nginx
 sudo mkdir -p /var/www/html
-echo "add_header X-Served-By  983-web-01" >> /etc/nginx/nginx.conf
-echo "add_header X-Served-By  983-web-02" >> /etc/nginx/nginx.conf
+echo "Holberton School" >> /var/www/html/index.html
+sudo sed -i "25i\ \tadd_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
 sudo service nginx start
