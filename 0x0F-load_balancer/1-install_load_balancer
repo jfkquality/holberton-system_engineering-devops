@@ -7,6 +7,7 @@ sudo apt-get -y install haproxy=1.5.\*
 echo "backend servers" >> /etc/haproxy/haproxy.cfg
 echo "  mode http" >> /etc/haproxy/haproxy.cfg
 echo "  balance roundrobin" >> /etc/haproxy/haproxy.cfg
-echo "  983-web-01 35.227.124.124:80 check" >> /etc/haproxy/haproxy.cfg
-echo "  983-web-02 35.229.76.171:80 check" >> /etc/haproxy/haproxy.cfg
+echo "  server 983-web-01 35.227.124.124:80 check" >> /etc/haproxy/haproxy.cfg
+echo "  server 983-web-02 35.229.76.171:80 check" >> /etc/haproxy/haproxy.cfg
 echo "  option httpchk" >> /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a ENABLED=1" /etc/default/haproxy

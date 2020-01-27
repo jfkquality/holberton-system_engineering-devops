@@ -5,7 +5,7 @@ exec { 'identity':
   path     => '/usr/bin/',
 }
 exec { 'no_password':
-  command  => 'echo IdentityFile ~/.ssh/holberton >> /etc/ssh/ssh_config',
+  command  => 'echo PasswordAuthentication no >> /etc/ssh/ssh_config',
   provider => 'shell',
   path     => '/usr/bin/',
 }
