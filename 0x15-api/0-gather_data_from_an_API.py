@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Get completed tasks for user id."""
+from sys import argv
 import json
 import requests
-from sys import argv
 
 
 if __name__ == "__main__":
