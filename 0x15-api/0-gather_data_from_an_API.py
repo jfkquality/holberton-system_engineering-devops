@@ -4,9 +4,10 @@ import requests
 import json
 from sys import argv
 
+
 if __name__ == "__main__":
+    """"Get completed tasks for user id."""
     userid = int(argv[1])
-    # tasks = requests.get('https://jsonplaceholder.typicode.com/todos')
     payload = {'id': userid}
     url1 = 'https://jsonplaceholder.typicode.com/users/'
     r_user = requests.get(url1, params=payload)
