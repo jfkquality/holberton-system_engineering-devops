@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Get completed tasks for user id."""
+import csv
 import json
 import requests
+import socket
 from sys import argv
 
 
@@ -19,24 +21,11 @@ if __name__ == "__main__":
     r_todos = requests.get(url2, params=payload)
     todos = json.loads(r_todos.text)  # or r_todos.json()
 
-    f = csv.writer(open("USER_ID.csv", "wb+"))
+    f = csv.writer(open("USER_ID.csv", "w"), quoting=csv.QUOTE_ALL)
 
     for todo in todos:
-        f.writerow([todo["userId"],
-                    user[0]["username"],
-                    todo["complete"],
-                    todo["title"]])
-
-    # total = len(todos[0])
-    # total = 0
-    # complete = 0
-    # completed = []
-    # for todo in todos:
-    #     if todo["completed"]:
-    #         completed.append(todo["title"])
-    #         complete += 1
-    #     total += 1
-    # print("Employee {} is done with tasks({}/{}):".format(user[0]["name"],
-    #                                                       complete, total))
-    # for done in completed:
-    #     print("\t {}".format(done))
+        f.writerow([todo['userId'],
+                    user[0]['username'],
+                    todo['completed'],
+                    todo['title']
+                ])
