@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Get completed tasks for user id."""
 import requests
 import json
 from sys import argv
