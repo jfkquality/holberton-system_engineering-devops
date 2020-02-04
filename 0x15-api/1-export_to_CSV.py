@@ -22,7 +22,7 @@ if __name__ == "__main__":
     todos = json.loads(r_todos.text)  # or r_todos.json()
 
     f = csv.writer(open("USER_ID.csv", "w"), quoting=csv.QUOTE_ALL)
-
+    f.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
     for todo in todos:
         f.writerow([todo['userId'],
                     user[0]['username'],
