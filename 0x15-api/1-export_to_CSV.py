@@ -24,8 +24,23 @@ if __name__ == "__main__":
     f = csv.writer(open("USER_ID.csv", "w"), quoting=csv.QUOTE_ALL)
     # headers = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
     # f.writerow(headers)
+
+    total = 0
+    complete = 0
+    completed = []
+
     for todo in todos:
+        if todo["completed"]:
+            completed.append(todo["title"])
+            complete += 1
+        total += 1
+
         f.writerow([todo['userId'],
                     user[0]['username'],
                     todo['completed'],
                     todo['title']])
+
+    print("Employee {} is done with tasks({}/{}):".format(user[0]["name"],
+                                                          complete, total))
+    for done in completed:
+        print("\t {}".format(done))
