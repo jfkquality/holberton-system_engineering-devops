@@ -14,12 +14,12 @@ if __name__ == "__main__":
     payload = {'id': userid}
     url1 = 'https://jsonplaceholder.typicode.com/users/'
     r_user = requests.get(url1, params=payload)
-    user = json.loads(r_user.text)  # or  r_user.json()
+    user = r_user.json()  # or json.loads(r_user.text)
 
     payload = {'userId': userid}
     url2 = 'https://jsonplaceholder.typicode.com/users/1/todos'
     r_todos = requests.get(url2, params=payload)
-    todos = r_todos.json()
+    todos = r_todos.json()  # or json.loads(r_todos.text)
     # headers = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
     # f.writerow(headers)
 
@@ -28,7 +28,6 @@ if __name__ == "__main__":
         completed.append({"task": todo["title"],
                           "completed": todo["completed"],
                           "username": user[0]["username"]})
-    # print(completed)
     jdata = {todo['userId']: completed}
     # jdata = json.dumps(jdata)
     with open(str(userid) + ".json", "w") as outfile:
