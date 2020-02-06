@@ -29,8 +29,8 @@ if __name__ == "__main__":
         completed = []
         for todo in todos:
             completed.append({"task": todo["title"],
-                          "completed": todo["completed"],
-                          "username": user["username"]})
+                              "completed": todo["completed"],
+                              "username": user["username"]})
         jdata.update({todo["userId"]: completed})
         # jdata_all = jdata_all.update(jdata)
     # print(jdata)
