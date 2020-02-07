@@ -12,6 +12,7 @@ if __name__ == "__main__":
     payload = {'id': userid}
     url1 = 'https://jsonplaceholder.typicode.com/users/'
     r_user = requests.get(url1, params=payload)
+    print(r_user)
     # user = json.loads(r_user.text)  # or  r_user.json()
     user = r_user.json()
 
