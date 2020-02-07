@@ -3,6 +3,7 @@
 import requests
 from sys import argv
 
+
 def create_list(hot_list, posts, posts_len):
     i = 0
     while i < posts_len:
@@ -12,6 +13,7 @@ def create_list(hot_list, posts, posts_len):
     return (hot_list)
     # hot_list.append(posts[posts_len - 1]['data']['title'])
     # print(posts[posts_len - 1]['data']['title'])
+
 
 def recurse(subreddit, hot_list=[], nextpage=None):
     """Query Reddit recursively and return all posts of passed endpoint."""
