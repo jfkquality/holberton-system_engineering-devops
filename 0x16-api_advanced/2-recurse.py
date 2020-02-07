@@ -8,7 +8,7 @@ def create_list(hot_list, posts, posts_len):
     i = 0
     while i < posts_len:
         hot_list.append(posts[i]['data']['title'])
-        # print(posts[i]['data']['title'])
+        print(posts[i]['data']['title'])
         i += 1
     return (hot_list)
 
@@ -32,7 +32,10 @@ def recurse(subreddit, hot_list=[], nextpage=None):
 
     if posts_len == 0:
         return (None)
-    hot_list.extend(create_list(hot_list, posts, posts_len))
+    # hot_list.extend(create_list(hot_list, posts, posts_len))
+    (create_list(hot_list, posts, posts_len))
+    # print("LENGTH OF HOT LIST CALL ", len(create_list(hot_list, posts, posts_len)))
+    print("HOT LIST LENGTH ", len(hot_list))
     nextpage = about['data']['after']
 
     if nextpage:
