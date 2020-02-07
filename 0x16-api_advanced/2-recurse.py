@@ -6,14 +6,14 @@ from sys import argv
 def create_list(hot_list, posts, posts_len):
     i = 0
     while i < posts_len:
-        # hot_list.append(posts[i]['data']['title'])
-        print(posts[i]['data']['title'])
+        hot_list.append(posts[i]['data']['title'])
+        # print(posts[i]['data']['title'])
         i += 1
     return (hot_list)
     # hot_list.append(posts[posts_len - 1]['data']['title'])
     # print(posts[posts_len - 1]['data']['title'])
 
-def recurse(subreddit, hot_list=[], nextpage=""):
+def recurse(subreddit, hot_list=[], nextpage=None):
     """Query Reddit recursively and return all posts of passed endpoint."""
 
     # print("HOT LIST IS EMPTY")
