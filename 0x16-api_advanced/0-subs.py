@@ -10,7 +10,7 @@ def number_of_subscribers(subreddit):
     query = '/r/' + argv[1] + '/about.json'
     if len(argv) < 2:
         return (0)
-    res = requests.get(base_url + query, headers = {'User-agent': 'your bot 0.1'})
+    res = requests.get(base_url+query, headers={'User-agent': 'your bot 0.1'})
     if res.status_code != 200:
         return 0
     about = res.json()
