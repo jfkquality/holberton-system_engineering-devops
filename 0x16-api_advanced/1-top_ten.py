@@ -14,7 +14,7 @@ def top_ten(subreddit):
     res = requests.get(base_url+query, headers={'User-agent': 'your bot 0.1'})
     if res.status_code != 200:
         print('None')
-        exit
+        return (0)
     about = res.json()
     posts = about['data']['children']
     i = 0
