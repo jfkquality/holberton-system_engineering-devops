@@ -45,7 +45,8 @@ def count_words(subreddit, word_list, hot_list=[], nextpage=None):
             counts = 0
             for title in hot_list:
                 counts += title.lower().count(word.lower())
-            count_dict[word] = counts
+            if word.lower() not in count_dict.keys():
+                count_dict[word.lower()] = counts
         count_sorted = sorted(count_dict, key=count_dict.get, reverse=True)
         for k in count_sorted:
             if count_dict[k] > 0:
