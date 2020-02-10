@@ -44,17 +44,17 @@ def count_words(subreddit, word_list, hot_list=[], nextpage=None):
         for word in keywords:
             counts = 0
             for title in hot_list:
-                counts += title.count(word)
+                counts += title.lower().count(word.lower())
             count_dict[word] = counts
         count_sorted = sorted(count_dict, key=count_dict.get, reverse=True)
+        for k in count_sorted:
+            if count_dict[k] > 0:
+                print ("{}: {}".format(k.lower(), count_dict[k]))
 # for k, v in count_dict.items():
 # for k, v in sorted(count_dict.items(), key=lambda kv: kv[1], reverse=True):
-# for k in count_sorted:
-#     if count_dict[k] > 0:
-#         print ("{}: {}".format(k, count_dict[k]))
 # counts = [hot_list.count(word) for word in keywords]  # list comprehension
 # count_dict[word] = hot_list.count(word)
 
-        for k, v in sorted(count_dict.items(), reverse=True):
-            if v > 0:
-                print("{}: {}".format(k, v))
+        # for k, v in sorted(count_dict.items(), reverse=True):
+        #     if v > 0:
+        #         print("{}: {}".format(k.lower(), v))
