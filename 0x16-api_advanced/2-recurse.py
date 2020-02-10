@@ -2,6 +2,7 @@
 """Query Reddit recursively and return all posts of passed endpoint."""
 import requests
 from sys import argv
+import json
 
 
 def create_list(hot_list, posts, posts_len):
@@ -26,6 +27,8 @@ def recurse(subreddit, hot_list=[], nextpage=None):
                        headers={'User-agent': 'your bot 0.1'})
     if res.status_code != 200:
         return (None)
+    # print(res.headers['content-type'])
+
     about = res.json()
     posts = about['data']['children']
     posts_len = len(posts)
@@ -37,5 +40,8 @@ def recurse(subreddit, hot_list=[], nextpage=None):
 
     if nextpage:
         (recurse(subreddit, hot_list, nextpage))
+
+    for i, title in enumerate(hot_list):
+           print(hot_list[i])
 
     return (hot_list)
