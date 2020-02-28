@@ -2,17 +2,17 @@
 
 }
 exec { 'ulimit':
-  command  => 'sed -i "s/n 15/n 1500/" /etc//default/nginx',
+  command  => 'sed -i "s/n 15/n 1500/" /etc//default/nginx; service nginx restart',
   provider => 'shell',
   path     => '/usr/bin:/usr/sbin:/bin:/usr/local/sbin:/usr/local/bin:/bin:/sbin',
-  before   => Exec['nginx-restart'],
+  # before   => Exec['nginx-restart'],
 }
-exec { 'nginx-restart':
-  command  => 'service nginx restart',
-  provider => 'shell',
-  path     => '/usr/bin/',  # sbin/nginx',
-  require  => Exec['ulimit'],
-}
+# exec { 'nginx-restart':
+#   command  => 'service nginx restart',
+#   provider => 'shell',
+#   path     => '/usr/bin/',  # sbin/nginx',
+#   require  => Exec['ulimit'],
+# }
 # exec { 'nginx-start':
 #   command     => 'nginx',
 #   provider    => 'shell',
