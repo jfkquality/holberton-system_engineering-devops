@@ -1,6 +1,5 @@
 # Puppet manifest to correct 'too many files open'
 
-}
 exec { 'ulimit':
   command  => 'sed -i "s/15/1500/" /etc//default/nginx; service nginx restart',
   provider => 'shell',
