@@ -1,4 +1,5 @@
-![](https://www.worldatlas.com/r/w960-q80/upload/35/76/7b/shutterstock-260365799.jpg)
+<!-- ![](https://www.worldatlas.com/r/w960-q80/upload/35/76/7b/shutterstock-260365799.jpg) -->
+<img src="https://www.worldatlas.com/r/w960-q80/upload/35/76/7b/shutterstock-260365799.jpg" width=100>
 
 # System Engineering and Devops
 
